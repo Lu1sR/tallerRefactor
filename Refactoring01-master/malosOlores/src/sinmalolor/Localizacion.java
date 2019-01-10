@@ -46,8 +46,7 @@ public class Localizacion {
 	       provincia = provinciaNueva;
 	       direccion = direccionNueva;
 	}
-	 public String mostrarDireccion(){
-	        String dir = pais + " - " + provincia + " - " + ciudad;
-	        return  dir+ "\n" + direccion;
+	 public String mostrarDireccion(){	        
+	        return  pais + " - " + provincia + " - " + ciudad+ "\n" + direccion;
 	}
 }
