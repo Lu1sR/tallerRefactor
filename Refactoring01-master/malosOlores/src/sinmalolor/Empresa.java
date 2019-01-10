@@ -13,17 +13,21 @@ import java.util.List;
 
 public class Empresa {
     
-    public List<Cliente> clientes;
-    public List<Employee> empleados;
+    private List<Cliente> clientes;
+    private List<Employee> empleados;
     
     public Empresa(){
         clientes = new ArrayList<Cliente>();
         empleados = new ArrayList<Employee>();
     }
     
+    public List<Employee> getEmpleados(){
+    return empleados;
+    }
+    
     public void MostrarInformacion(Cliente cliente){
         System.out.println("Cliente:");
-        System.out.println("Nombre: " + cliente.Nombre + ", Apellido: " + cliente.Apellido + ", con numero de cedula: " + cliente.Cedula );
+        System.out.println("Nombre: " + cliente.getNombre() + ", Apellido: " + cliente.getApellido() + ", con numero de cedula: " + cliente.getCedula() );
         System.out.println("Direccion: " + cliente.mostrarLocation());
         System.out.println("----------------------");
     }
