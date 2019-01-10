@@ -4,7 +4,6 @@ public class Localizacion {
 	private String provincia;
 	private String pais;
 	private String ciudad;
-	private String direccion;
 
 	public Localizacion() {
 	}
@@ -33,21 +32,14 @@ public class Localizacion {
 		this.ciudad = ciudad;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-	 public void cambiarDireccion(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva){
-	       pais = nuevoPais;
-	       ciudad = ciudadnueva;
-	       provincia = provinciaNueva;
-	       direccion = direccionNueva;
+	 public void cambiarDireccion(String nuevoPais, String ciudadnueva, String provinciaNueva){
+	       this.pais = nuevoPais;
+	       this.ciudad = ciudadnueva;
+	       this.provincia = provinciaNueva;
+	       
 	}
 	 public String mostrarDireccion(){
-	        String dir = pais + " - " + provincia + " - " + ciudad;
-	        return  dir+ "\n" + direccion;
+	        String dir = this.pais + " - " + this.provincia + " - " + this.ciudad;
+	        return  dir+ "\n";
 	}
 }

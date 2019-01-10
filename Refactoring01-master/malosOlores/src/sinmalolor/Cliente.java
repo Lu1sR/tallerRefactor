@@ -8,11 +8,12 @@ package sinmalolor;
 
 
 public class Cliente {
-    public String Nombre;
-    public String Apellido;
-    public String Cedula;
-    private Localizacion data = new Localizacion();
-	private String telefono;
+    protected String Nombre;
+    protected String Apellido;
+    protected String Cedula;
+    protected Localizacion data;
+    protected Direccion direccion;
+    protected Telefono telefono;
     
     public Cliente(String Nombre, String Apellido, String Cedula) {
         this.Nombre = Nombre;
@@ -46,22 +47,28 @@ public class Cliente {
 
     public String mostrarLocation(){
         String dir = data.getPais() + " - " + data.getProvincia() + " - " + data.getCiudad();
-        return  dir+ "\n" + data.getDireccion();
+        return  dir+ "\n" + direccion.mostrarDireccion();
     }
     
     public void setLocation(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva){
         data.setPais(nuevoPais);
         data.setCiudad(ciudadnueva);
         data.setProvincia(provinciaNueva);
-        data.setDireccion(direccionNueva);
+        
     }
-
+    public void setDireccion(String calle1, String calle2, int numeManzana,int numeroDominicilio){
+        direccion.setCalle1(calle1);
+        direccion.setCalle2(calle2);
+        direccion.setNumeroDomicilio(numeroDominicilio);
+        direccion.setNumeroManzana(numeManzana);
+    }
     public String getTelefono() {
-        return telefono;
+        return telefono.getTelefono();
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono(int codPais, int numero) {
+        telefono.setCodPais(codPais);
+        telefono.setNumero(numero);
     }
 
     

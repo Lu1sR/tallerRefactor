@@ -5,18 +5,14 @@
  */
 package sinmalolor;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-
-
 public class Employee
 {   
 
-    private String Nombre;
-    private String Apellido;
-    private String Cedula;
-    private Localizacion data = new Localizacion();
+    protected String Nombre;
+    protected String Apellido;
+    protected String Cedula;
+    protected Localizacion data;
+    protected Direccion direccion;
 	protected final float rmu = (float) 386.0;
     //salario del employee
     protected float salary;
@@ -31,7 +27,9 @@ public class Employee
         this.Nombre = "Descconocido";
         this.Apellido = "Descconocido";
         this.Cedula = "0000000000";
-        this.data.cambiarDireccion("Ecuador", "Gye", "Guayas", "ESPOL Prosperina");
+        this.data.cambiarDireccion("Ecuador", "Gye", "Guayas");
+        this.direccion.setDireccion("ESPOL Prosperina"," ", 0, 0);
+        
     }
     //calcula el salario dependiendo del tipo de trabajador y entrega el décimo correspondiente cada 2 meses
    
