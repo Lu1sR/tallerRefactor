@@ -39,24 +39,7 @@ public class Empresa {
     }
     
     public void GuardarCliente(String Nombre, String Apellido, String Cedula){
-        if(Nombre.equals("") && Nombre.length()> 16){
-                System.out.println("ingreso de nombre incorrecto");
-        }else{
-            System.out.println("ingreso de nombre correcto");
-
-        }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-
-        }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-
-        }
+        validarInformacion(Nombre,Apellido,Cedula);
         Cliente cliente = new Cliente(Nombre, Apellido, Cedula);
         cliente.setLocation("Ecuador", "Guayaquil", "Guayas", "Alborada 3era etapa");
         this.clientes.add(cliente);
@@ -65,35 +48,45 @@ public class Empresa {
     }
     
     public void validarInformacion(String Nombre, String Apellido, String Cedula ){
-        if(Nombre.equals("") && Nombre.length()> 16){
-            System.out.println("ingreso de nombre incorrecto");
+        final boolean nombrevalido= Nombre.equals("") && Nombre.length()> 16;
+        final boolean apellidovalido= Apellido.equals("") && Apellido.length()> 16;
+        final boolean cedulavalida =Cedula.equals("") && Cedula.length()< 10;
+        if(nombrevalido){
+            mostrarMensaje(true, "nombre");
         }else{
-            System.out.println("ingreso de nombre correcto");
+            mostrarMensaje(false, "nombre");
             
         }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
+        if(apellidovalido){
+            mostrarMensaje(true, "apellido");
+
         }else{
-            System.out.println("ingreso de apellido correcto");
+            mostrarMensaje(false, "apellido");
             
         }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
+        if(!cedulavalida){
+            mostrarMensaje(true, "cedula");
         }else{
-            System.out.println("ingreso de cedula correcto");
-            
+            mostrarMensaje(false, "cedula");
+
         }
         
     }
     
+    public void mostrarMensaje(boolean valido, String campo){
+    if(valido == true){
+        System.out.println("ingreso de " + campo+ " correcto");
+    }else{
+        System.out.println("ingreso de " + campo+ " incorrecto");
+    }
+    }
+    
     public void mostrarTodo() {
         
-        //Mostrar los clientes 
         for(Cliente cliente : this.clientes){
             MostrarInformacion(cliente);           
         }
         
-        //Mostrar los empleados 
         for(Employee empleado : this.empleados){
             MostrarInformacionEmp(empleado);           
         }
