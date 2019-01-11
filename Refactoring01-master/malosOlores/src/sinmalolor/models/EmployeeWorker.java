@@ -5,8 +5,6 @@ import sinmalolor.Utils;
 public class EmployeeWorker extends Employee {
 
 
-	
-
 	public float calcularSalario() {
 
 	    if(Utils.getLocalDate().getMonthValue() % 2 ==  0)
