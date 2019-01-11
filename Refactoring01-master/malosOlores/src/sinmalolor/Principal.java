@@ -5,6 +5,12 @@
  */
 package sinmalolor;
 
+import sinmalolor.builder.ClientBuilder;
+import sinmalolor.models.EmployeeWorker;
+import sinmalolor.models.Empresa;
+import sinmalolor.models.Localizacion;
+import sinmalolor.models.Persona;
+
 /**
  *
  * @author djurado
@@ -16,11 +22,25 @@ public class Principal {
      */
     public static void main(String[] args) {
         Empresa miEmpresa = new Empresa();
-        miEmpresa.GuardarCliente("Alberto", "Castillo", "0987678711");
-        miEmpresa.GuardarCliente("Ana", "Vera", "1780982211");
-        miEmpresa.GuardarCliente("Diana", "Andrade", "1209339980");
-        miEmpresa.empleados.add(new Worker(450.0f, 0.05f));
-        miEmpresa.mostrarTodo();
+
+        try {
+            Persona cliente = new ClientBuilder()
+                    .setNombre("Alberto")
+                    .setApellido("Castillo")
+                    .setCedula("0987678711")
+                    .setLocalizacion(new Localizacion("Guayas","Ecuador","Guayaquil","Enrique segoviano"))
+                    .build();
+            
+            miEmpresa.guardarCliente(cliente);
+            miEmpresa.mostrarInformacion(cliente);
+
+            miEmpresa.mostrarTodo();
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
     }
     
 }
